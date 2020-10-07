@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+    <title>Hangman APP</title>
+</head>
+
+<body>
+    <h1>Hello {{ player1.playerName }}!</h1>
+    <h3>Guesses Left: {{ player1.noOfGuesses }}</h3>
+    <h3>Your current guess: {{ player1.currentWord }}</h3>
+
+
+    <form method="POST">
+        <input name="guessChar" type="text" placeholder="guess">
+        <button action="/" name="forwardBtn" type="submit">Guess</button>
+    </form>
+
+    {% if player1.word == player1.currentWord: %}
+    <p>You won!</p>
+    {% endif %} {% if player1.noOfGuesses == 0: %}
+    <p>You lost!</p>
+    {% endif %}
+
+</body>
+
+</html>
