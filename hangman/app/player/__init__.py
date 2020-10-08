@@ -4,16 +4,19 @@ class Player:
     def __init__(self, name, noOfGuesses, word):
         self.playerName = name
         self.noOfGuesses = noOfGuesses
-        self.word = word
+        self.word = word.upper()
+        self.finalWord = ""
+        for i in self.word:
+            self.finalWord += i + " "
         self.wordLength = len(self.word)
 
         self.guessList = []
         for i in self.word:
-            self.guessList.append('_ ')
+            self.guessList.append('_')
 
         self.currentWord = ""
         for i in self.guessList:
-            self.currentWord += i
+            self.currentWord += i + " "
 
         
     def play(self, guessedChar):
@@ -49,7 +52,7 @@ class Player:
 
         self.currentWord = ""
         for i in self.guessList:
-            self.currentWord += i
+            self.currentWord += i + " "
 
         if not doesExist:
             self.noOfGuesses -= 1
